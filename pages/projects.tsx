@@ -1,12 +1,12 @@
-import { Layout } from "base/components"
+import { Layout } from "base/components";
 
-import { NextPage } from "next"
-import Head from "next/head"
-import { Item } from "projects/components"
+import { NextPage } from "next";
+import Head from "next/head";
+import { Item } from "projects/components";
 
 type Props = {
-  projects: any[]
-}
+  projects: any[];
+};
 
 const Projects: NextPage<Props> = ({ projects }) => {
   return (
@@ -21,16 +21,16 @@ const Projects: NextPage<Props> = ({ projects }) => {
         총 프로젝트: <span className="text-orange-400">{projects.length}</span>
       </h1>
 
-      <div className="mx-5 py-10 2xl:mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="py-10 mx-5 2xl:mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
         {projects.map((item, key) => (
           <Item data={item} key={key} />
         ))}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
 
 export async function getStaticProps() {
   const options = {
@@ -50,21 +50,16 @@ export async function getStaticProps() {
       ],
       page_size: 100,
     }),
-  }
+  };
 
-  const res = await fetch(
-    `https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`,
-    options
-  )
+  const res = await fetch(`https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`, options);
 
-  const projects = await res.json()
+  const projects = await res.json();
 
-  const projectNames = projects.results.map(
-    (item: any) => item.properties["이름"].title[0].plain_text
-  )
-  console.log(projectNames)
+  const projectNames = projects.results.map((item: any) => item.properties["이름"].title[0].plain_text);
+  console.log(projectNames);
 
   return {
     props: { projects: projects.results }, // will be passed to the page component as props
-  }
+  };
 }
