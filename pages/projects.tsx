@@ -3,12 +3,17 @@ import { Layout } from "base/components";
 import { NextPage } from "next";
 import Head from "next/head";
 import { Item } from "projects/components";
+import { useEffect } from "react";
 
 type Props = {
   projects: any[];
 };
 
 const Projects: NextPage<Props> = ({ projects }) => {
+  useEffect(() => {
+    console.log(projects);
+  }, [projects]);
+
   return (
     <Layout>
       <Head>
@@ -44,8 +49,8 @@ export async function getStaticProps() {
     body: JSON.stringify({
       sorts: [
         {
-          property: "이름",
-          direction: "ascending",
+          property: "날짜",
+          direction: "descending",
         },
       ],
       page_size: 100,
@@ -54,12 +59,11 @@ export async function getStaticProps() {
 
   const res = await fetch(`https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`, options);
 
-  const projects = await res.json();
+  const { results: projects } = await res.json();
 
-  const projectNames = projects.results.map((item: any) => item.properties["이름"].title[0].plain_text);
-  console.log(projectNames);
+  // const projectNames = projects.results.map((item: any) => item.properties["이름"].title[0].plain_text);
 
   return {
-    props: { projects: projects.results }, // will be passed to the page component as props
+    props: { projects }, // will be passed to the page component as props
   };
 }
