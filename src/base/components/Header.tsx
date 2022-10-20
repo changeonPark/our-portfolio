@@ -1,5 +1,5 @@
-import Link from "next/link"
-import ModeToggle from "./ModeToggle"
+import Link from "next/link";
+import ModeToggle from "./ModeToggle";
 
 const Header = () => {
   return (
@@ -33,7 +33,7 @@ const Header = () => {
         <ModeToggle />
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
