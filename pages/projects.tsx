@@ -39,7 +39,7 @@ export async function getStaticProps() {
       "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
     },
-    body: JSON.stringify({ filter: { value: "database", property: "object" }, page_size: 5 }),
+    body: JSON.stringify({ filter: { value: "database", property: "object" }, page_size: 20 }),
   };
   const { results: projectList } = await (await fetch("https://api.notion.com/v1/search", listOptions)).json();
 
@@ -68,7 +68,7 @@ export async function getStaticProps() {
     }),
   };
 
-  const res = await fetch(`https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`, options);
+  const res = await fetch(`https://api.notion.com/v1/databases/${dbIds[0]}/query`, options);
 
   const { results: projects } = await res.json();
 
