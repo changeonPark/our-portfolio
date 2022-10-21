@@ -15,13 +15,7 @@ const Projects: NextPage<Props> = ({ projects }) => {
   }, [projects]);
 
   return (
-    <Layout>
-      <Head>
-        <title>박찬건 포트폴리오</title>
-        <meta name="description" content="박찬건의 포트폴리오" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Layout title="Projects">
       <h1 className="text-4xl font-bold mx-5 2xl:mx-auto">
         총 프로젝트: <span className="text-orange-400">{projects.length}</span>
       </h1>
