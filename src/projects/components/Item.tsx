@@ -8,7 +8,8 @@ type Props = {
 const Item = ({ data }: Props) => {
   const title: string = data.properties["이름"].title[0].plain_text;
   const github: string = data.properties["깃허브"].url;
-  const description: string = data.properties["간단 설명"].rich_text[0].plain_text;
+  let description: string = data.properties["간단 설명"].rich_text[0].plain_text;
+  description = description.replaceAll("\n", "\n\n");
   const src = data.cover.external?.url || data.cover.file?.url;
   const tags: {
     id: string;
@@ -17,6 +18,8 @@ const Item = ({ data }: Props) => {
   }[] = data.properties["태그"].multi_select;
   const start = data.properties["날짜"].date.start;
   const end = data.properties["날짜"].date.end;
+
+  console.log("간단 설명", description);
 
   return (
     <div className="projects-card relative">
@@ -54,7 +57,7 @@ const Item = ({ data }: Props) => {
             </span>
           ))}
         </div>
-        <h3>{description}</h3>
+        <h3 className="whitespace-pre-line">{description}</h3>
       </div>
     </div>
   );
