@@ -1,7 +1,6 @@
 import { Layout } from "base/components";
 
 import { NextPage } from "next";
-import Head from "next/head";
 import { Item } from "projects/components";
 import { useEffect } from "react";
 
@@ -32,6 +31,24 @@ const Projects: NextPage<Props> = ({ projects }) => {
 export default Projects;
 
 export async function getStaticProps() {
+  const listOptions = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Notion-Version": "2022-06-28",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+    },
+    body: JSON.stringify({ filter: { value: "database", property: "object" }, page_size: 5 }),
+  };
+  const { results: projectList } = await (await fetch("https://api.notion.com/v1/search", listOptions)).json();
+
+  // console.log(projectList);
+  const dbNames = projectList.map((item: any) => item.title[0].plain_text);
+  console.log(dbNames);
+  const dbIds = projectList.map((item: any) => item.id);
+  console.log(dbIds);
+
   const options = {
     method: "POST",
     headers: {
@@ -53,25 +70,10 @@ export async function getStaticProps() {
 
   const res = await fetch(`https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`, options);
 
-  const listOptions = {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Notion-Version": "2022-06-28",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-    },
-    body: JSON.stringify({ filter: { value: "database", property: "object" }, page_size: 5 }),
-  };
-  const list = await (await fetch("https://api.notion.com/v1/search", listOptions)).json();
-
-  console.log(list);
-
   const { results: projects } = await res.json();
-
-  // const projectNames = projects.results.map((item: any) => item.properties["이름"].title[0].plain_text);
 
   return {
     props: { projects }, // will be passed to the page component as props
+    revalidate: 30, //2592000 === 30일
   };
 }
