@@ -23,6 +23,8 @@ jobs:
           envVariableKeys: NOTION_TOKEN
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          TARGET_NOTION_TOKEN: preview,development,production # comma delimited, one of [production, preview, development]
+          TYPE_NOTION_TOKEN: encrypted # one of [plain, encrypted]
       # deploy app to vercel
       - name: deploy site to vercel
         uses: amondnet/vercel-action@v20
