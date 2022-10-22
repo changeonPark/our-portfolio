@@ -1,79 +1,42 @@
 import { Layout } from "base/components";
-
-import { NextPage } from "next";
-import { Item } from "projects/components";
-import { useEffect } from "react";
+import { ProjectResult } from "interface/project";
+import { getProjectInfo, getProjects } from "libs/api/project";
+import { GetStaticPropsResult, NextPage } from "next";
+import { Project } from "projects/components";
 
 type Props = {
-  projects: any[];
+  data: ProjectResult;
 };
 
-const Projects: NextPage<Props> = ({ projects }) => {
-  useEffect(() => {
-    console.log(projects);
-  }, [projects]);
-
+const Projects: NextPage<Props> = ({ data }) => {
   return (
     <Layout title="Projects">
-      <h1 className="text-4xl font-bold mx-5 2xl:mx-auto">
-        총 프로젝트: <span className="text-orange-400">{projects.length}</span>
-      </h1>
-
-      <div className="py-10 mx-5 2xl:mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
-        {projects.map((item, key) => (
-          <Item data={item} key={key} />
-        ))}
-      </div>
+      {Object.keys(data).map(id => {
+        return <Project key={id} info={data[id]} />;
+      })}
     </Layout>
   );
 };
 
 export default Projects;
 
-export async function getStaticProps() {
-  const listOptions = {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Notion-Version": "2022-06-28",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-    },
-    body: JSON.stringify({ filter: { value: "database", property: "object" }, page_size: 20 }),
-  };
-  const { results: projectList } = await (await fetch("https://api.notion.com/v1/search", listOptions)).json();
+export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
+  const projectList = await getProjects();
 
-  // console.log(projectList);
-  const dbNames = projectList.map((item: any) => item.title[0].plain_text);
-  console.log(dbNames);
-  const dbIds = projectList.map((item: any) => item.id);
-  console.log(dbIds);
+  let result: ProjectResult = {};
 
-  const options = {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Notion-Version": "2022-06-28",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-    },
-    body: JSON.stringify({
-      sorts: [
-        {
-          property: "날짜",
-          direction: "descending",
-        },
-      ],
-      page_size: 100,
-    }),
-  };
-
-  const res = await fetch(`https://api.notion.com/v1/databases/${dbIds[0]}/query`, options);
-
-  const { results: projects } = await res.json();
+  for (const item of projectList) {
+    const projectInfo = await getProjectInfo(item.id);
+    result[item.id] = {
+      projectName: item.title[0].plain_text,
+      data: projectInfo,
+    };
+  }
 
   return {
-    props: { projects }, // will be passed to the page component as props
+    props: {
+      data: result,
+    }, // will be passed to the page component as props
     revalidate: 30, //2592000 === 30일
   };
 }

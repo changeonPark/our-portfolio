@@ -10,7 +10,7 @@ const Item = ({ data }: Props) => {
   const github: string = data.properties["깃허브"].url;
   let description: string = data.properties["간단 설명"].rich_text[0].plain_text;
   description = description.replaceAll("\n", "\n\n");
-  const src = data.cover.external?.url || data.cover.file?.url;
+  const src = data.cover.external?.url || data.cover.file?.url || null;
   const tags: {
     id: string;
     name: string;
@@ -19,21 +19,21 @@ const Item = ({ data }: Props) => {
   const start = data.properties["날짜"].date.start;
   const end = data.properties["날짜"].date.end;
 
-  console.log("간단 설명", description);
-
   return (
     <div className="projects-card relative">
       <div className="w-full">
-        <Image
-          className="rounded-t-xl"
-          src={src}
-          width="100%"
-          height="100%"
-          alt="cover_image"
-          layout="responsive"
-          objectFit="fill"
-          quality={100}
-        />
+        {src && (
+          <Image
+            className="rounded-t-xl"
+            src={src}
+            width="100%"
+            height="100%"
+            alt="cover_image"
+            layout="responsive"
+            objectFit="fill"
+            quality={100}
+          />
+        )}
       </div>
 
       <div className="flex flex-col gap-4 px-4 my-4">
