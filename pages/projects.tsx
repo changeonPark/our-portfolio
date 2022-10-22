@@ -9,6 +9,7 @@ type Props = {
 };
 
 const Projects: NextPage<Props> = ({ data }) => {
+  console.log(data);
   return (
     <Layout title="Projects">
       {Object.keys(data).map(id => {
