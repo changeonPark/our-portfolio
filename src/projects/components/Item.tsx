@@ -8,8 +8,9 @@ type Props = {
 const Item = ({ data }: Props) => {
   const title: string = data.properties["이름"].title[0].plain_text;
   const github: string = data.properties["깃허브"].url;
-  const description: string = data.properties["간단 설명"].rich_text[0].plain_text;
-  const src = data.cover.external?.url || data.cover.file?.url;
+  let description: string = data.properties["간단 설명"].rich_text[0].plain_text;
+  description = description.replaceAll("\n", "\n\n");
+  const src = data.cover.external?.url || data.cover.file?.url || null;
   const tags: {
     id: string;
     name: string;
@@ -21,16 +22,18 @@ const Item = ({ data }: Props) => {
   return (
     <div className="projects-card relative">
       <div className="w-full">
-        <Image
-          className="rounded-t-xl"
-          src={src}
-          width="100%"
-          height="100%"
-          alt="cover_image"
-          layout="responsive"
-          objectFit="fill"
-          quality={100}
-        />
+        {src && (
+          <Image
+            className="rounded-t-xl"
+            src={src}
+            width="100%"
+            height="100%"
+            alt="cover_image"
+            layout="responsive"
+            objectFit="fill"
+            quality={100}
+          />
+        )}
       </div>
 
       <div className="flex flex-col gap-4 px-4 my-4">
@@ -54,7 +57,7 @@ const Item = ({ data }: Props) => {
             </span>
           ))}
         </div>
-        <h3>{description}</h3>
+        <h3 className="whitespace-pre-line">{description}</h3>
       </div>
     </div>
   );

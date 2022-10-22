@@ -46,6 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/sharp", "npm:0.31.0"],\
             ["autoprefixer", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:10.4.12"],\
+            ["axios", "npm:1.1.3"],\
             ["babel-loader", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:8.2.5"],\
             ["eslint", "npm:8.25.0"],\
             ["eslint-config-next", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:12.3.1"],\
@@ -8883,6 +8884,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["axios", [\
+        ["npm:1.1.3", {\
+          "packageLocation": "./.yarn/cache/axios-npm-1.1.3-4b63965ac1-cab3b17bf6.zip/node_modules/axios/",\
+          "packageDependencies": [\
+            ["axios", "npm:1.1.3"],\
+            ["follow-redirects", "virtual:4b63965ac1b2157b91a1875529bea3b0bbc3068d3676d1bef28bff5cf6689705374a86cc3832f95ba8d934037a93cc0e09c3662c13ca0e747800d7ca279a53c0#npm:1.15.2"],\
+            ["form-data", "npm:4.0.0"],\
+            ["proxy-from-env", "npm:1.1.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["axobject-query", [\
         ["npm:2.2.0", {\
           "packageLocation": "./.yarn/cache/axobject-query-npm-2.2.0-6553738f52-96b8c7d807.zip/node_modules/axobject-query/",\
@@ -12759,6 +12772,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["follow-redirects", [\
+        ["npm:1.15.2", {\
+          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+          "packageDependencies": [\
+            ["follow-redirects", "npm:1.15.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4b63965ac1b2157b91a1875529bea3b0bbc3068d3676d1bef28bff5cf6689705374a86cc3832f95ba8d934037a93cc0e09c3662c13ca0e747800d7ca279a53c0#npm:1.15.2", {\
+          "packageLocation": "./.yarn/__virtual__/follow-redirects-virtual-b0bb08d690/0/cache/follow-redirects-npm-1.15.2-1ec1dd82be-faa66059b6.zip/node_modules/follow-redirects/",\
+          "packageDependencies": [\
+            ["follow-redirects", "virtual:4b63965ac1b2157b91a1875529bea3b0bbc3068d3676d1bef28bff5cf6689705374a86cc3832f95ba8d934037a93cc0e09c3662c13ca0e747800d7ca279a53c0#npm:1.15.2"],\
+            ["@types/debug", null],\
+            ["debug", null]\
+          ],\
+          "packagePeers": [\
+            "@types/debug",\
+            "debug"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["for-each", [\
         ["npm:0.3.3", {\
           "packageLocation": "./.yarn/cache/for-each-npm-0.3.3-0010ca8cdd-6c48ff2bc6.zip/node_modules/for-each/",\
@@ -12956,6 +12991,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/form-data-npm-3.0.1-d080d436e0-b019e8d35c.zip/node_modules/form-data/",\
           "packageDependencies": [\
             ["form-data", "npm:3.0.1"],\
+            ["asynckit", "npm:0.4.0"],\
+            ["combined-stream", "npm:1.0.8"],\
+            ["mime-types", "npm:2.1.35"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/form-data-npm-4.0.0-916facec2d-01135bf867.zip/node_modules/form-data/",\
+          "packageDependencies": [\
+            ["form-data", "npm:4.0.0"],\
             ["asynckit", "npm:0.4.0"],\
             ["combined-stream", "npm:1.0.8"],\
             ["mime-types", "npm:2.1.35"]\
@@ -17068,6 +17113,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/sharp", "npm:0.31.0"],\
             ["autoprefixer", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:10.4.12"],\
+            ["axios", "npm:1.1.3"],\
             ["babel-loader", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:8.2.5"],\
             ["eslint", "npm:8.25.0"],\
             ["eslint-config-next", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:12.3.1"],\
