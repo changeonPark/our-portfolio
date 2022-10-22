@@ -6,7 +6,7 @@ on:
     branches: ["main"]
 
 jobs:
-  vercel:
+  deploy_vercel:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,8 +22,8 @@ jobs:
           TARGET_NOTION_TOKEN: preview,development,production # comma delimited, one of [production, preview, development]
           TYPE_NOTION_TOKEN: encrypted # one of [plain, encrypted]
       # deploy app to vercel
-      - name: deploy site to vercel
-        uses: amondnet/vercel-action@v20
+      - name: Vercel Action
+        uses: amondnet/vercel-action@v25.1.0
         with:
           vercel-token: ${{ secrets.VERCEL_DEPLOY_TOKEN }} # Required
           vercel-org-id: ${{ secrets.ORG_ID}} #Required
