@@ -1,4 +1,5 @@
 # https://github.com/vercel/examples/tree/main/ci-cd/github-actions
+# 왜 revalidate 안되누?
 
 name: GitHub Actions Vercel Production Deployment
 env:
