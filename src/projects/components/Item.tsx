@@ -1,31 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
+import { RootObject } from "interface/project";
 
 type Props = {
-  data: any;
+  data: RootObject;
 };
 
 const Item = ({ data }: Props) => {
-  const title: string = data.properties["이름"].title[0].plain_text;
-  const github: string = data.properties["깃허브"].url;
-  let description: string = data.properties["간단 설명"].rich_text[0].plain_text;
-  description = description.replaceAll("\n", "\n\n");
-  const src = data.cover.external?.url || data.cover.file?.url || null;
+  const title: string = data.properties["name"].title[0].plain_text;
+  const link: string = data.properties["link"].url;
+  let introduce: string = data.properties["introduce"].rich_text[0].plain_text;
+  introduce = introduce.replaceAll("\n", "\n\n");
+  const cover = data.cover.external?.url || data.cover.file?.url || null;
   const tags: {
     id: string;
     name: string;
     color: string;
-  }[] = data.properties["태그"].multi_select;
-  const start = data.properties["날짜"].date.start;
-  const end = data.properties["날짜"].date.end;
+  }[] = data.properties["tag"].multi_select;
+  const start = data.properties["date"].date.start;
+  const end = data.properties["date"].date.end || null;
 
   return (
     <div className="projects-card relative">
       <div className="w-full">
-        {src && (
+        {cover && (
           <Image
             className="rounded-t-xl"
-            src={src}
+            src={cover}
             width="100%"
             height="100%"
             alt="cover_image"
@@ -38,14 +39,11 @@ const Item = ({ data }: Props) => {
 
       <div className="flex flex-col gap-4 px-4 my-4">
         <h2 className="text-2xl font-bold">{title}</h2>
-        <Link href={github}>
+        <Link href={link}>
           <a target="_blank">GitHub</a>
         </Link>
         <h3>
-          작업 기간:{" "}
-          <span>
-            {start} ~ {end}
-          </span>
+          {start} ~ {end ? end : "진행 중"}
         </h3>
         <div className="flex items-center gap-3">
           {tags.map((tag, index) => (
@@ -57,7 +55,7 @@ const Item = ({ data }: Props) => {
             </span>
           ))}
         </div>
-        <h3 className="whitespace-pre-line">{description}</h3>
+        <h3 className="whitespace-pre-line">{introduce}</h3>
       </div>
     </div>
   );

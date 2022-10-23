@@ -1,5 +1,5 @@
 import { Layout } from "base/components";
-import { ProjectResult } from "interface/project";
+import { ProjectResult, RootObject } from "interface/project";
 import { getProjectInfo, getProjects } from "libs/api/project";
 import { GetStaticPropsResult, NextPage } from "next";
 import { Project } from "projects/components";
@@ -9,6 +9,8 @@ type Props = {
 };
 
 const Projects: NextPage<Props> = ({ data }) => {
+  console.log(data);
+
   return (
     <Layout title="Projects">
       {Object.keys(data).map(id => {
@@ -26,7 +28,7 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   let result: ProjectResult = {};
 
   for (const item of projectList) {
-    const projectInfo = await getProjectInfo(item.id);
+    const projectInfo: RootObject[] = await getProjectInfo(item.id);
     result[item.id] = {
       projectName: item.title[0].plain_text,
       data: projectInfo,

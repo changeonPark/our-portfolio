@@ -28,7 +28,7 @@ let infoOptions = {
   data: {
     sorts: [
       {
-        property: "날짜",
+        property: "date",
         direction: "descending",
       },
     ],
