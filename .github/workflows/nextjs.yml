@@ -1,5 +1,6 @@
 # https://github.com/vercel/examples/tree/main/ci-cd/github-actions
 # 왜 revalidate 안되누?
+# Vercel에도 env 추가
 
 name: GitHub Actions Vercel Production Deployment
 env:
