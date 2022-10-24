@@ -1,25 +1,25 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="body-font text-gray-600">
+    <footer className="body-font">
       <div className="container mx-auto flex flex-col items-center px-5 py-8 sm:flex-row">
         <Link href={"/"}>
-        <a className="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            className="h-10 w-10 rounded-full bg-yellow-500 p-2 text-white"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-          <span className="ml-3 text-xl">찬건`s 포트폴리오</span>
-        </a>
+          <a className="title-font flex items-center justify-center font-medium md:justify-start">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              className="h-10 w-10 rounded-full bg-yellow-500 p-2 text-white"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span className="ml-3 text-xl">찬건`s 포트폴리오</span>
+          </a>
         </Link>
         <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
           <a className="text-gray-500">
@@ -80,7 +80,7 @@ const Footer = () => {
         </span>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
