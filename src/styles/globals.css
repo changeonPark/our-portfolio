@@ -4,14 +4,13 @@
 
 @layer base {
   .bg-primary {
-    @apply bg-white dark:bg-gray-900;
+    @apply bg-white dark:bg-gray-900/50;
   }
 
   footer {
     @apply text-gray-800 dark:text-white bg-slate-300/50 dark:bg-slate-900/50;
   }
   .card {
-    @apply transition duration-300 transform
-           hover:scale-105;
+    @apply transition duration-300 transform hover:scale-105;
   }
 }

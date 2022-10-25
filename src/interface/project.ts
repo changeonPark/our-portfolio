@@ -133,7 +133,7 @@ export interface RootObject {
   last_edited_time: string;
   created_by: Created_by;
   last_edited_by: Last_edited_by;
-  cover: Cover;
+  cover: Cover | null;
   icon?: any;
   parent: Parent;
   archived: boolean;
