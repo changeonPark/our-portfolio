@@ -63,7 +63,7 @@ export interface Introduce {
 export interface Multi_select {
   id: string;
   name: string;
-  color: string;
+  color: "default" | "gray" | "brown" | "red" | "orange" | "yellow" | "green" | "blue" | "purple" | "pink";
 }
 
 export interface Tag {
@@ -139,4 +139,18 @@ export interface RootObject {
   archived: boolean;
   properties: Property;
   url: string;
+}
+
+// "default", "gray", "brown", "red", "orange", "yellow", "green", "blue", "purple", "pink"
+export enum _Tags {
+  "default" = "bg-gray-800",
+  "gray" = "bg-gray-400",
+  "brown" = "bg-amber-800",
+  "red" = "bg-red-600",
+  "orange" = "bg-orange-600",
+  "yellow" = "bg-yellow-500",
+  "green" = "bg-green-600",
+  "blue" = "bg-blue-700",
+  "purple" = "bg-purple-700",
+  "pink" = "bg-pink-500",
 }
