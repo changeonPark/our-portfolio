@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { RootObject } from "interface/project";
 import Item from "./Item";
 
-const mookData = {
+const mookData: RootObject = {
   object: "page",
   id: "ae321de6-7bc9-4323-a8cc-4ea0f6f7e853",
   created_time: "2022-10-21T12:41:00.000Z",
