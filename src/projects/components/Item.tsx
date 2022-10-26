@@ -17,28 +17,26 @@ const Item = ({ data }: Props) => {
   const end = data.properties["date"].date.end || null;
 
   return (
-    <a className="p-4 card" href={link} target="_blank" rel="noopener noreferrer">
-      <div className="bg-gray-400 dark:bg-gray-800 bg-opacity-40 backdrop-blur-sm p-6 rounded-lg h-full">
-        {cover && (
-          <div className="relative w-full h-40 mb-6 rounded overflow-hidden">
-            <Image src={cover} alt="content" layout="fill" />
-          </div>
-        )}
-
-        <h3 className="tracking-widest text-black dark:text-white text-xs font-medium title-font">Project</h3>
-        <h2 className="text-lg font-medium mb-2">{title}</h2>
-        <p className="text-xs mb-2">
-          {start} ~ {end ? end : "진행중"}
-        </p>
-        <div className="flex gap-1 text-xs flex-wrap mb-2">
-          {tags.map(tag => (
-            <span key={tag.id} className={`${_Tags[tag.color]} px-2 py-1 rounded-md text-white`}>
-              {tag.name}
-            </span>
-          ))}
+    <a className="card" href={link} target="_blank" rel="noopener noreferrer">
+      {cover && (
+        <div className="relative w-full h-40 mb-6 rounded overflow-hidden">
+          <Image src={cover} alt="content" layout="fill" />
         </div>
-        <p className="leading-relaxed text-sm whitespace-pre-line">{introduce}</p>
+      )}
+
+      <h3 className="tracking-widest text-black dark:text-white text-xs font-medium title-font">Project</h3>
+      <h2 className="text-lg font-medium mb-2">{title}</h2>
+      <p className="text-xs mb-2">
+        {start} ~ {end ? end : "진행중"}
+      </p>
+      <div className="flex gap-1 text-xs flex-wrap mb-2">
+        {tags.map(tag => (
+          <span key={tag.id} className={`${_Tags[tag.color]} px-2 py-1 rounded-md text-white`}>
+            {tag.name}
+          </span>
+        ))}
       </div>
+      <p className="leading-relaxed text-sm whitespace-pre-line">{introduce}</p>
     </a>
   );
 };

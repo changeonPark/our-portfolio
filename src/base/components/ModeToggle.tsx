@@ -1,16 +1,16 @@
-import { useTheme } from "next-themes"
+import { useTheme } from "next-themes";
 
 const ModeToggle = () => {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="bg-transparent mt-4 inline-flex items-center rounded border-0 py-1 px-3 text-base hover:text-orange-400 focus:outline-none md:mt-0"
+      className="bg-transparent inline-flex items-center rounded border-0 py-1 px-3 text-base hover:text-signature focus:outline-none"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className={'h-6 w-6 hidden dark:block'}
+        className={"h-6 w-6 hidden dark:block"}
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -25,7 +25,7 @@ const ModeToggle = () => {
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className={'h-6 w-6 block dark:hidden'}
+        className={"h-6 w-6 block dark:hidden"}
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -38,7 +38,7 @@ const ModeToggle = () => {
         />
       </svg>
     </button>
-  )
-}
+  );
+};
 
-export default ModeToggle
+export default ModeToggle;

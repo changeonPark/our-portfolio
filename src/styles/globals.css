@@ -3,14 +3,65 @@
 @tailwind utilities;
 
 @layer base {
-  .bg-primary {
-    @apply bg-white dark:bg-gray-900/50;
+  header {
+    transition: color 0.3s ease-in-out;
+    @apply bg-light/50 dark:bg-dark/50 text-light dark:text-dark backdrop-blur-sm;
+  }
+  footer {
+    @apply bg-light dark:bg-dark text-light dark:text-dark;
+  }
+}
+
+@layer components {
+  .card {
+    @apply transition duration-300 transform hover:scale-105 p-4 bg-gray-400 dark:bg-gray-800 bg-opacity-40 rounded-lg h-full;
   }
 
-  footer {
-    @apply text-gray-800 dark:text-white bg-slate-300/50 dark:bg-slate-900/50;
+  #hamburger > span {
+    display: block;
+    width: 16px;
+    height: 2px;
+    border-radius: 9999px;
+    @apply bg-gray-800 dark:bg-white;
   }
-  .card {
-    @apply transition duration-300 transform hover:scale-105;
+  #hamburger > span:nth-child(2) {
+    width: 10px;
+    margin-left: 6px;
+  }
+  #hamburger > span:not(:last-child) {
+    margin-bottom: 5px;
+  }
+
+  #hamburger,
+  #hamburger > span {
+    transition: all 0.3s ease-in-out;
+  }
+
+  #hamburger.active {
+    transition-delay: 0.3s;
+    transform: rotate(45deg);
+  }
+  #hamburger.active > span:nth-child(2) {
+    width: 0;
+  }
+  #hamburger.active > span:nth-child(1),
+  #hamburger.active > span:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  #hamburger.active > span:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  #hamburger.active > span:nth-child(1) {
+    transform: translateY(2px);
+  }
+  #hamburger.active > span:nth-child(3) {
+    transform: rotate(90deg) translateX(-2px);
+  }
+}
+
+@layer utilities {
+  .modal-opened {
+    @apply overflow-hidden md:overflow-auto;
   }
 }

@@ -4,7 +4,7 @@ const Document = () => {
   return (
     <Html>
       <Head>
-        <meta name="description" content="박찬건의 포트폴리오" />
+        <meta name="description" content="포트폴리오" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>

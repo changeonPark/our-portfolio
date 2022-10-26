@@ -13,9 +13,11 @@ const Projects: NextPage<Props> = ({ data }) => {
 
   return (
     <Layout title="Projects">
-      {Object.keys(data).map(id => {
-        return <Project key={id} info={data[id]} />;
-      })}
+      <div className="px-5 flex flex-col gap-20">
+        {Object.keys(data).map(id => {
+          return <Project key={id} info={data[id]} />;
+        })}
+      </div>
     </Layout>
   );
 };
