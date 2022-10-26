@@ -14,7 +14,7 @@ const Layout = ({ title, children }: Props) => {
         <title>{title}</title>
       </Head>
       <Header />
-      {children}
+      <main className="min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto">{children}</main>
       <Footer />
     </div>
   );

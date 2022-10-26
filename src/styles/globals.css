@@ -7,10 +7,12 @@
     @apply bg-white dark:bg-gray-900/50;
   }
 
+  header,
   footer {
-    @apply text-gray-800 dark:text-white bg-slate-300/50 dark:bg-slate-900/50;
+    @apply bg-light dark:bg-dark text-light dark:text-dark;
   }
+
   .card {
-    @apply transition duration-300 transform hover:scale-105;
+    @apply transition duration-300 transform hover:scale-105 p-4 bg-gray-400 dark:bg-gray-800 bg-opacity-40 rounded-lg h-full;
   }
 }

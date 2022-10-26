@@ -143,7 +143,7 @@ export interface RootObject {
 
 // "default", "gray", "brown", "red", "orange", "yellow", "green", "blue", "purple", "pink"
 export enum _Tags {
-  "default" = "bg-gray-800",
+  "default" = "bg-cyan-800",
   "gray" = "bg-gray-400",
   "brown" = "bg-amber-800",
   "red" = "bg-red-600",
