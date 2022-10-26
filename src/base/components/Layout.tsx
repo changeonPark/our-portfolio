@@ -9,14 +9,15 @@ type Props = {
 
 const Layout = ({ title, children }: Props) => {
   return (
-    <div className="bg-primary">
+    <>
       <Head>
         <title>{title}</title>
       </Head>
       <Header />
-      <main className="min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto">{children}</main>
+      <main className="min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto py-24">{children}</main>
       <Footer />
-    </div>
+      <div id="root-modal"></div>
+    </>
   );
 };
 
