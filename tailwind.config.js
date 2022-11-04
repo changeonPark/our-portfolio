@@ -8,12 +8,12 @@ module.exports = {
       textColor: {
         light: "#1f2937",
         dark: "#ffffff",
-        signature: "#f97316",
+        primary: "#f97316",
       },
       backgroundColor: {
         light: "#e2e8f0",
         dark: "rgb(30 41 59)",
-        signature: "#f97316",
+        primary: "#f97316",
       },
       animation: {
         "sidebar-open": "sidebar-open 0.3s",
