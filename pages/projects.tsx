@@ -39,6 +39,6 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
     props: {
       data: result,
     }, // will be passed to the page component as props
-    revalidate: 30, //2592000 === 30일
+    revalidate: 2592000, //2592000 === 30일
   };
 }
