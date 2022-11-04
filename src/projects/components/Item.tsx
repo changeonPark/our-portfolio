@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { RootObject, _Tags } from "interface/project";
+import { RootObject, _Tags } from "projects/types";
 
 type Props = {
   data: RootObject;
