@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import Layout from "./Layout";
+import { Layout } from "layout/components";
 
 export default {
-  title: "base/components/Layout",
+  title: "Layout",
   component: Layout,
 } as ComponentMeta<typeof Layout>;
 

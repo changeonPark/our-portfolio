@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { ProjectInfo } from "interface/project";
+import { ProjectInfo } from "projects/types";
 import { Item } from ".";
 
 type Props = {
