@@ -1,49 +1,54 @@
 import axios from "axios";
 
-export const getProjects = async () => {
-  const listOptions = {
-    method: "POST",
-    url: "https://api.notion.com/v1/search",
-    headers: {
-      accept: "application/json",
-      "Notion-Version": "2022-06-28",
-      "Content-Type": "application/json",
-      authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-    },
-    data: { filter: { value: "database", property: "object" }, page_size: 20 },
-  };
-  const { data } = await axios.request(listOptions);
-  return data.results;
-};
+class ProjectAPI {
+  protected option: Object;
 
-let infoOptions = {
-  method: "POST",
-  url: "",
-  headers: {
-    accept: "application/json",
-    "Notion-Version": "2022-06-28",
-    "content-type": "application/json",
-    authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-  },
-  data: {
-    sorts: [
-      {
-        property: "date",
-        direction: "descending",
+  constructor() {
+    console.log("init!");
+    this.option = {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "Notion-Version": "2022-06-28",
+        "Content-Type": "application/json",
+        authorization: `Bearer ${process.env.NOTION_TOKEN}`,
       },
-    ],
-    page_size: 100,
-  },
-};
-
-export const getProjectInfo = async (projectId: string) => {
-  infoOptions.url = `https://api.notion.com/v1/databases/${projectId}/query`;
-
-  try {
-    const { data } = await axios.request(infoOptions);
-    return data.results;
-  } catch (error) {
-    console.log(error);
-    throw error;
+    };
   }
-};
+
+  protected fetcher(option: Object) {
+    try {
+      return axios.request(option).then(res => res.data.results);
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  getProject() {
+    const option = {
+      ...this.option,
+      url: "https://api.notion.com/v1/search",
+      data: { filter: { value: "database", property: "object" }, page_size: 20 },
+    };
+    return this.fetcher(option);
+  }
+  getProjectInfo(projectId: string) {
+    const option = {
+      ...this.option,
+      url: `https://api.notion.com/v1/databases/${projectId}/query`,
+      data: {
+        sorts: [
+          {
+            property: "date",
+            direction: "descending",
+          },
+        ],
+        page_size: 100,
+      },
+    };
+    return this.fetcher(option);
+  }
+}
+
+export default new ProjectAPI();

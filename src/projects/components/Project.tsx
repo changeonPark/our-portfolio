@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ProjectInfo } from "interface/project";
 import { Item } from ".";
 
