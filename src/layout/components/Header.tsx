@@ -1,35 +1,12 @@
-import { cls } from "libs/utils";
+import { useRef } from "react";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import ModeToggle from "./ModeToggle";
-import Sidebar from "./Sidebar";
+import { cls } from "base/utils";
+import { ModeToggle, Sidebar } from ".";
+import useAnimation from "../use-animation";
 
 const Header = () => {
   const hamburger = useRef<HTMLDivElement>(null);
-  const isVisible = useRef(true);
-  const [sidebar, setSidebar] = useState<boolean>(false);
-  const [animate, setAnimate] = useState<boolean>(false);
-
-  const onClickSidebar = () => {
-    setAnimate(() => true);
-    setTimeout(() => setAnimate(() => false), 250);
-    isVisible.current = false;
-  };
-
-  useEffect(() => {
-    if (!hamburger.current) return;
-    if (sidebar) {
-      document.body.classList.add("modal-opened");
-      hamburger.current.classList.add("active");
-    } else {
-      document.body.classList.remove("modal-opened");
-      hamburger.current.classList.remove("active");
-    }
-  }, [sidebar]);
-
-  useEffect(() => {
-    if (!animate && !isVisible.current) setSidebar(prev => !prev);
-  }, [animate]);
+  const { sidebar, setSidebar, onClickSidebar, animate } = useAnimation({ target: hamburger.current });
 
   return (
     <>

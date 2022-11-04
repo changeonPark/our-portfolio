@@ -1,8 +1,8 @@
-import { Layout } from "base/components";
-import { ProjectResult, RootObject } from "interface/project";
-import { getProjects, getProjectInfo } from "libs/api/project";
 import { GetStaticPropsResult, NextPage } from "next";
+import { Layout } from "layout/components";
 import { Project } from "projects/components";
+import { ProjectResult, RootObject } from "projects/types";
+import { getProjects, getProjectInfo } from "projects/apis";
 
 type Props = {
   data: ProjectResult;
@@ -39,6 +39,6 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
     props: {
       data: result,
     }, // will be passed to the page component as props
-    revalidate: 30, //2592000 === 30일
+    revalidate: 2592000, //2592000 === 30일
   };
 }

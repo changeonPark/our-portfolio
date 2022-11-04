@@ -64,6 +64,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sharp", "npm:0.31.1"],\
             ["storybook-tailwind-dark-mode", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:1.0.15"],\
             ["tailwindcss", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:3.2.0"],\
+            ["tsconfig-paths-webpack-plugin", "npm:4.0.0"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"],\
             ["util", "npm:0.12.5"]\
@@ -17131,6 +17132,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sharp", "npm:0.31.1"],\
             ["storybook-tailwind-dark-mode", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:1.0.15"],\
             ["tailwindcss", "virtual:3ffd8d025a521b69f002b6b3232b32cb4ec1cca2ad8556a0dfd5601df379c723cf34bc7cfc9ace279652af0386c29619a97d155177481885f10305f0df391757#npm:3.2.0"],\
+            ["tsconfig-paths-webpack-plugin", "npm:4.0.0"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"],\
             ["util", "npm:0.12.5"]\
@@ -21053,6 +21055,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["json5", "npm:1.0.1"],\
             ["minimist", "npm:1.2.7"],\
             ["strip-bom", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/tsconfig-paths-npm-4.1.0-719ff0a854-e4b101f81b.zip/node_modules/tsconfig-paths/",\
+          "packageDependencies": [\
+            ["tsconfig-paths", "npm:4.1.0"],\
+            ["json5", "npm:2.2.1"],\
+            ["minimist", "npm:1.2.7"],\
+            ["strip-bom", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["tsconfig-paths-webpack-plugin", [\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/tsconfig-paths-webpack-plugin-npm-4.0.0-399b80e99e-7ff7d63c11.zip/node_modules/tsconfig-paths-webpack-plugin/",\
+          "packageDependencies": [\
+            ["tsconfig-paths-webpack-plugin", "npm:4.0.0"],\
+            ["chalk", "npm:4.1.2"],\
+            ["enhanced-resolve", "npm:5.10.0"],\
+            ["tsconfig-paths", "npm:4.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\

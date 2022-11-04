@@ -1,4 +1,4 @@
-import { cls } from "libs/utils";
+import { cls } from "base/utils";
 import { useEffect } from "react";
 
 type Props = {
