@@ -1,10 +1,16 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   mode: "jit",
   content: ["./pages/**/*.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        base: ['"Gowun Dodum"', ...defaultTheme.fontFamily.sans],
+        accent: ['"Black Han Sans"'],
+      },
       textColor: {
         light: "#1f2937",
         dark: "#ffffff",
@@ -15,14 +21,14 @@ module.exports = {
         dark: "rgb(30 41 59)",
         primary: "#f97316",
       },
+      borderColor: {
+        primary: "#f97316",
+      },
       animation: {
         "sidebar-open": "sidebar-open 0.3s",
         "sidebar-close": "sidebar-close 0.3s",
-        "dropdown-open": "dropdown-open 5",
-        "dropdown-close": "dropdown-close 0.5",
-        "arrow-rotate": "arrow-rotate 0.5",
+        bottomTotop: "bottomTotop 6s linear infinite 0s",
         shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
-        reveal: "reveal 0.3s",
       },
       keyframes: {
         "sidebar-open": {
@@ -33,17 +39,29 @@ module.exports = {
           "0%": { transform: "translateX(0%)", opacity: 1 },
           "100%": { transform: "translateX(100%)", opacity: 0 },
         },
-        "dropdown-open": {
-          "0%": { transform: "0px" },
-          "100%": { transform: "100px" },
-        },
-        "dropdown-close": {
-          "0%": { transform: "translateY(100%)" },
-          "100%": { transform: "translateY(0%)" },
-        },
-        "arrow-rotate": {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(90deg)" },
+        bottomTotop: {
+          "0%": {
+            opacity: 0,
+          },
+          "25%": {
+            opacity: 0,
+            transform: "translateY(10px)",
+          },
+          "35%": {
+            opacity: 1,
+            transform: "translateY(10px)",
+          },
+          "50%": {
+            opacity: 1,
+            transform: "translateY(0px)",
+          },
+          "65%": {
+            opacity: 0,
+            transform: "translateY(0px)",
+          },
+          "100%": {
+            opacity: 0,
+          },
         },
         shake: {
           "10%, 90%": {
