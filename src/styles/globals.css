@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply font-base;
+  }
   header {
     transition: color 0.3s ease-in-out;
     @apply bg-light/50 dark:bg-dark/50 text-light dark:text-dark backdrop-blur-sm;
@@ -63,5 +66,8 @@
 @layer utilities {
   .modal-opened {
     @apply overflow-hidden md:overflow-auto;
+  }
+  .animation-delay {
+    animation-delay: 3s;
   }
 }

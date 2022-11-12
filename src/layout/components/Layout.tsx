@@ -13,7 +13,7 @@ const Layout = ({ title, children }: Props) => {
         <title>{title}</title>
       </Head>
       <Header />
-      <main className="min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto py-24">{children}</main>
+      <main className="min-h-screen max-w-7xl mx-auto py-24">{children}</main>
       <Footer />
       <div id="root-modal"></div>
     </>
