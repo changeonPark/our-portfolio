@@ -51,7 +51,7 @@ const mookData: RootObject = {
         },
       ],
     },
-    tag: {
+    skill: {
       id: "R%3B_%5D",
       type: "multi_select",
       multi_select: [
