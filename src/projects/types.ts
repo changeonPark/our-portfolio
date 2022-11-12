@@ -66,7 +66,7 @@ export interface Multi_select {
   color: "default" | "gray" | "brown" | "red" | "orange" | "yellow" | "green" | "blue" | "purple" | "pink";
 }
 
-export interface Tag {
+export interface Skill {
   id: string;
   type: string;
   multi_select: Multi_select[];
@@ -120,13 +120,13 @@ export interface Name {
 
 export interface Property {
   introduce: Introduce;
-  tag: Tag;
+  skill: Skill;
   link: Link;
   date: Date;
   name: Name;
 }
 
-export interface RootObject {
+export interface  RootObject {
   object: string;
   id: string;
   created_time: string;
@@ -142,7 +142,7 @@ export interface RootObject {
 }
 
 // "default", "gray", "brown", "red", "orange", "yellow", "green", "blue", "purple", "pink"
-export enum _Tags {
+export enum _SKILLS {
   "default" = "bg-cyan-800",
   "gray" = "bg-gray-400",
   "brown" = "bg-amber-800",

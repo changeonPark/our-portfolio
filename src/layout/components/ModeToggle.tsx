@@ -6,7 +6,7 @@ const ModeToggle = () => {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="bg-transparent inline-flex items-center rounded border-0 py-1 px-3 text-base hover:text-signature focus:outline-none"
+      className="bg-transparent inline-flex items-center rounded border-0 py-1 px-3 text-base hover:text-primary focus:outline-none"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

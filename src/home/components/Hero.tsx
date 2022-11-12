@@ -1,28 +1,46 @@
-import Link from "next/link"
-import Animation from "./Animation"
+import Link from "next/link";
+import Animation from "./Animation";
 
 const Hero = () => {
+  const introduce = ["Changeon Park", "FE Developer"];
+
   return (
-    <>
-      <div className="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:pr-16 md:text-left lg:flex-grow lg:pr-24">
-        <h1 className="title-font mb-4 text-3xl font-medium text-gray-900 sm:text-4xl">
-          안녕하세요, 박찬건입니다
-          <br className="hidden lg:inline-block" />
-          FE 개발자로 일하고 있습니다
+    <section className="text-light dark:text-dark flex flex-col px-3">
+      <article className="flex flex-col gap-3 md:gap-6">
+        <p className="text-base md:text-2xl">방문해 주셔서 감사합니다!</p>
+        <h1 className="text-2xl md:text-4xl lg:text-6xl font-accent flex gap-2">
+          <span>I`am</span>
+          <div className="relative md:min-w-[300px] lg:min-w-[500px]">
+            {introduce.map(item => (
+              <span
+                key={item}
+                className="text-primary opacity-0 absolute top-0 left-0 animate-bottomTotop last:animation-delay whitespace-nowrap"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </h1>
-        <div className="flex justify-center">
-          <Link href={"/projects"}>
-          <a className="inline-flex rounded border-0 bg-yellow-600 py-2 px-6 text-lg text-white hover:bg-yellow-600 focus:outline-none">
-            프로젝트 보러가기
-          </a>
-          </Link>
+        <div className="text-light/80 dark:text-dark/80 text-sm md:text-base flex flex-col gap-1">
+          <p>유지 보수에 용이하고, 재사용성이 높은 코드 작성을 위해 노력합니다</p>
+          <p>어려운 문제를 서로 공유하고 함께 해결하는 것을 좋아합니다</p>
+          <p>문제를 다양한 방면으로 도전해보는 것을 좋아합니다</p>
         </div>
-      </div>
-      <div className="w-5/6 md:w-1/2 lg:w-full lg:max-w-lg">
+      </article>
+
+      {/* <article>
         <Animation />
-      </div>
-    </>
-  )
+      </article> */}
+    </section>
+  );
+};
+
+{
+  /* <button className="flex justify-center items-center p-2 w-fit bg-primary rounded-md text-xs md:text-sm text-white">
+          <Link href={"/projects"}>
+            <a>프로젝트 보러가기</a>
+          </Link>
+        </button> */
 }
 
-export default Hero
+export default Hero;

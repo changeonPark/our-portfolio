@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { RootObject, _Tags } from "projects/types";
+import { RootObject, _SKILLS } from "projects/types";
 
 type Props = {
   data: RootObject;
@@ -12,7 +12,7 @@ const Item = ({ data }: Props) => {
   let introduce: string = data.properties["introduce"].rich_text[0].plain_text;
   introduce = introduce.replaceAll("\n", "\n\n");
   const cover = data.cover ? data.cover.external?.url || data.cover.file?.url : null;
-  const tags = data.properties["tag"].multi_select;
+  const skills = data.properties["skill"].multi_select;
   const start = data.properties["date"].date.start;
   const end = data.properties["date"].date.end || null;
 
@@ -30,8 +30,8 @@ const Item = ({ data }: Props) => {
         {start} ~ {end ? end : "진행중"}
       </p>
       <div className="flex gap-1 text-xs flex-wrap mb-2">
-        {tags.map(tag => (
-          <span key={tag.id} className={`${_Tags[tag.color]} px-2 py-1 rounded-md text-white`}>
+        {skills.map(tag => (
+          <span key={tag.id} className={`${_SKILLS[tag.color]} px-2 py-1 rounded-md text-white`}>
             {tag.name}
           </span>
         ))}

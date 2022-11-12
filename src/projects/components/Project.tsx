@@ -13,8 +13,8 @@ const Project = ({ info }: Props) => {
     <section>
       <div className="flex flex-wrap w-full mb-5">
         <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
-          <h1 className="sm:text-3xl text-2xl font-medium text-signature mb-2">{projectTitle[0]}</h1>
-          <div className="h-1 w-20 bg-signature rounded"></div>
+          <h1 className="sm:text-3xl text-2xl font-medium text-primary mb-2">{projectTitle[0]}</h1>
+          <div className="h-1 w-20 bg-primary rounded"></div>
         </div>
         <p className="lg:w-1/2 w-full leading-relaxed text-opacity-90 whitespace-pre-line">{description}</p>
       </div>
